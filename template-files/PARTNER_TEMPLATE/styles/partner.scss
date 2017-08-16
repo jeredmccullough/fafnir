@@ -1,0 +1,66 @@
+@import './colors';
+@import './mixins';
+@import 'global';
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+hr,
+ul {
+  margin: 0;
+}
+
+a.button,
+button {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  border-style: none;
+  border-width: 0;
+}
+
+hr {
+  border-style: solid;
+}
+
+html {
+  font-size: 14px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+div,
+span ul,
+li,
+section,
+article {
+  @include box;
+}
+
+.navbar,
+.main-content,
+.footer {
+  @include box;
+  display: block;
+  min-width: 300px;
+}
+
+img.emoji {
+  height: 1em;
+  width: 1em;
+  margin: 0 .05em 0 0;
+  vertical-align: -0.1em;
+}

@@ -1,0 +1,14 @@
+$white: #ffffff;
+$light-grey: #d5d3d1;
+$grey: #c0c0c0;
+$dark-grey: #808080;
+$black: #000000;
+$indigo: #4b0082;
+$blue-indigo: #3964c3;
+$red: #ff0000;
+$dark-green: #006400;
+$green: #00ff00;
+$facebook-blue: #3b5998;
+@function shadow($depth) {
+  @return rgba(0, 0, 0, $depth/100);
+}

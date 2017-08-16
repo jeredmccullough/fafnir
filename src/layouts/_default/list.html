@@ -1,0 +1,24 @@
+
+{{ if eq "production" (getenv "ENV") }}
+  {{ partial "prod-pages/redirect" . }}
+{{else}}
+  {{ partial "dev-pages/list-header" . }}
+  <a class="btn" href="{{ .Site.BaseURL }}" title="{{ .Site.Data.l10n.article.back_to_home }}">&laquo;</a>
+  <div class="container clearfix">
+      <main role="main" class="content">
+          {{ $paginator := .Data.Pages }}
+          <div class="template-list">
+          {{ $current_kind := .Kind}}
+          {{ range $paginator }}
+              {{ .Render "summary" }}
+          {{ end }}
+          <div class="page-summary placeholder"></div>
+          <div class="page-summary placeholder"></div>
+          <div class="page-summary placeholder"></div>
+          <div class="page-summary placeholder"></div>
+          </div>
+      </main>
+      {{ partial "dev-pages/pagination"}}
+  </div>
+  {{ partial "dev-pages/list-footer" . }}
+{{ end }}

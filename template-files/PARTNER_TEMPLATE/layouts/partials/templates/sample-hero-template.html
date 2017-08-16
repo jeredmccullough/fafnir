@@ -1,0 +1,6 @@
+{{ $config := .Params.config }}
+{{ partial "components/header" $config.header }}
+<main class="main-content">
+  {{ partial "components/hero/hero" $config.hero }}
+</main>
+{{ partial "components/footer" $config.footer }}

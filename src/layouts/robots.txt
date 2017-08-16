@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /
+Crawl-Delay: 10
+
+User-agent: adsbot-google
+Disallow: /
+
+User-agent: Nutch
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+Crawl-Delay: 10
+
+User-agent: Facebot
+Disallow: /
+Crawl-Delay: 10

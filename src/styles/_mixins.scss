@@ -1,0 +1,33 @@
+// dep: flex, colors
+
+@mixin box {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+@mixin _button {
+  border: 1px solid $black;
+  color: $black;
+  background-color: $white;
+  padding: 0.5em 2em;
+  text-decoration: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+@mixin centered {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+}
+
+@mixin clean-input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+@mixin button {
+  @include _button;
+}

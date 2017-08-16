@@ -1,0 +1,26 @@
+<footer class="footer">
+  {{ with .image }}
+    <img class="footer__image" src="{{ . | absURL }}" />
+  {{ end }}
+  <ul class="footer__list">
+    {{ with .social }}
+      <li class="footer__social">
+        {{ range . }}
+          <a class="social__link" href="{{ .href }}" target="_blank">
+            <img src="{{ .icon | absURL }}" />
+          </a>
+        {{ end }}
+      </li>
+    {{ end }}
+    {{ with .links }}
+      <li class= "footer__links">
+        {{ range . }}
+          <a href="{{ .url }}">{{ .key }}</a>
+        {{end}}
+      </li>
+    {{ end }}
+     <li class= "footer__rights">
+        © 2017 {{ .partnername }}. All rights reserved
+     </li>
+  </ul>
+</footer>

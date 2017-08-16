@@ -1,0 +1,28 @@
+<article class = "page-summary">
+  <h2>
+    {{ if .Params.variant_title }}
+      <a href="{{ .Permalink }}" title="{{ .Params.variant_id }}">{{ .Params.variant_title }}</a>
+    {{ else }}
+      <a href="{{ .Permalink }}" title="{{ .Params.variant_id }}">{{ .Params.variant_id }}</a>
+    {{ end }}
+  </h2>
+  <footer class="post-info">
+    <span class="post-meta">
+      <time  datetime="{{ .Date.Format "2006.01.02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      <div>
+        {{ if isset .Params "tags" }}
+          {{ if gt (len .Params.tags) 0 }}{{ .Site.Data.l10n.article.tagged_in }}
+            {{ range $i, $v := .Params.tags }}
+              {{ $tag := dict "index" $i "tag" $v "tags" $.Params.tags "url" $.Site.BaseURL}}
+              {{ partial "dev-pages/tag" $tag }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+      <small class="template-label">
+        <b>HTML Template</b>
+        <i>{{.Params.template}}</i>
+      </small>
+    </span>
+  </footer>
+</article>

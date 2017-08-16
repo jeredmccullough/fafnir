@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>{{ .Title  }}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" />
+      {{ with .Params.meta }}
+        {{range $key, $value := .}}
+           <meta name="{{$key}}" property="{{$key}}" content="{{.}}"/>
+        {{end}}
+      {{ end }}
+      <!-- Helpers ================================================== -->
+      <!--custom js  & CSS files here -->
+      <link rel="icon" href="{{ "img/favicon.ico" | absURL }}" />
+      <link rel="stylesheet" href="/tmp/{{ .Params.template }}.{{ getenv "HASH" }}.css" />
+      {{ with .Site.Params.custom_css }}
+        {{ range  . }}
+          <link rel="stylesheet" href="{{ . | absURL }}" />
+        {{ end }}
+      {{ end }}
+
+      {{ with .Params.custom_css }}
+        {{ range . }}
+          <link rel="stylesheet" href="{{ . | absURL }}" />
+        {{end}}
+      {{ end }}
+
+      <style class = "no-fouc">fouc, *[fouc] {opacity: 0;}</style>
+      <script>
+        window.startTime = Date.now()
+      </script>
+      {{ with .Site.Params.imgPixels }}
+        {{ range  . }}
+          <img style="visibility:hidden;position:absolute;z-index:-100;" src="{{.}}">
+        {{ end }}
+      {{ end }}
+    </head>
+    <body id="{{ .Params.variant_id }}" class="{{ .Params.template }}">
+      {{ with .Site.Params.noscriptpixels }}
+        <noscript>
+          {{ range  . }}
+            <img style="visibility:hidden;position:absolute;z-index:-100;" src="{{.}}">
+          {{ end }}
+        </noscript>
+      {{ end }}

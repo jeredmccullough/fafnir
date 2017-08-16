@@ -1,0 +1,25 @@
+<!-- dynamic-background-images -->
+{{ with .images }}
+  {{ partial "components/hero/_style" . }}
+{{ end }}
+<section class="hero">
+  {{ with .head }}
+    <h1 class="hero__head">{{ . }}</h1>
+  {{ end }}
+  {{ with .subhead }}
+    <h2 class="hero__subhead">{{ . }}</h2>
+  {{ end }}
+  {{ with .body }}
+    <p class="hero__body">{{ . }}</p>
+  {{ end }}
+  {{ if .url }}
+    <a href="{{ .url | absURL }}"
+      onClick = "amp.track('trigger', {name: [{{ range .conversionevents }} '.' {{ end }}]})"
+      class="hero__button button cta">
+      {{ .action }}
+    </a>
+  {{end }}
+  {{ with .post }}
+    <p class="hero__post-cta">{{ . }}</p>
+  {{ end }}
+</section>

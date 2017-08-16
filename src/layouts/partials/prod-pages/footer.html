@@ -1,0 +1,29 @@
+    <script>
+      {{with .Params.hard_url}}
+        window.__HARDURL__ = {{.}};
+      {{end}}
+
+      {{with .Params.chat}}
+        window.__CHATID__ = {{.}};
+      {{end}}
+    </script>
+    {{"<!--[if IE]>"| safeHTML}}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-shim.min.js'></script>
+    {{"<![endif]-->" | safeHTML}}
+
+    <!-- <script type="text/javascript" src= "/tmp/vendor.{{ getenv "HASH"  }}.js"></script> -->
+    <script type="text/javascript" src= "/tmp/{{ .Params.template }}.{{ getenv "HASH" }}.js"></script>
+
+    {{ with .Site.Params.custom_js }}
+      {{ range . }}
+        <script type="text/javascript" src="{{ . | absURL }}"></script>
+      {{ end }}
+    {{ end }}
+
+    {{ with .Params.custom_js }}
+      {{ range . }}
+        <script type="text/javascript" src="{{ . | absURL }}"></script>
+      {{ end }}
+    {{ end }}
+  </body>
+</html>

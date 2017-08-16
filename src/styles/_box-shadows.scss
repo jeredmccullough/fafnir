@@ -1,0 +1,43 @@
+// dep: colors
+
+@mixin box-shadow ($level) {
+  @if $level == 1 {
+    box-shadow: 0 0.1rem 0.3rem shadow(12), 0 0.1rem 0.2rem shadow(24);
+  } @else if $level == 2 {
+    box-shadow: 0 0.3rem 0.6rem shadow(16), 0 0.3rem 0.6rem shadow(23);
+  } @else if $level == 3 {
+    box-shadow: 0 1rem 2rem shadow(19), 0 0.6rem 0.6rem shadow(23);
+  } @else if $level == 4 {
+    box-shadow: 0 1.4rem 2.8rem shadow(25), 0 1rem 1rem shadow(22);
+  } @else if $level == 5 {
+    box-shadow: 0 1.9rem 3.8rem shadow(30), 0 1.5rem 1.2rem shadow(22);
+  }
+}
+
+@mixin inset-shadow ($level) {
+  @if $level == 1 {
+    box-shadow: inset 0 0.1rem 0.3rem shadow(12);
+  } @else if $level == 2 {
+    box-shadow: inset 0 0.3rem 0.5rem shadow(16);
+  } @else if $level == 3 {
+    box-shadow: inset 0 1rem 2rem shadow(19);
+  } @else if $level == 4 {
+    box-shadow: inset 0 1.4rem 2.8rem shadow(25);
+  } @else if $level == 5 {
+    box-shadow: inset 0 1.9rem 3.8rem shadow(30);
+  }
+}
+
+@mixin inset-shadow-full ($level) {
+  @if $level == 1 {
+    box-shadow: inset 0 0 0.3rem shadow(12);
+  } @else if $level == 2 {
+    box-shadow: inset 0 0.5rem shadow(16);
+  } @else if $level == 3 {
+    box-shadow: inset 0 0 2rem shadow(19);
+  } @else if $level == 4 {
+    box-shadow: inset 0 0 2.8rem shadow(25);
+  } @else if $level == 5 {
+    box-shadow: inset 0 0 3.8rem shadow(30);
+  }
+}

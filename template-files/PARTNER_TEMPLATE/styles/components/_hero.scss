@@ -1,0 +1,148 @@
+.hero {
+  @include flexbox;
+  @include justify-content(flex-end);
+  @include flex-direction(column);
+  @include align-items(center);
+
+  height: 80vh;
+  min-height: 20em;
+  max-height: 29rem;
+  font-size: 1.2rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Souvenir-Light, serif;
+}
+
+
+.hero__head {
+  font-size: 2em;
+  font-weight: normal;
+  text-align: center;
+}
+
+.hero__subhead {
+  font-size: 1.4em;
+  font-weight: lighter;
+  font-family: WorkSans-Light, sans-serif;
+  margin-bottom: 0.3em;
+}
+
+.hero__body {
+  font-family: WorkSans-Light, sans-serif;
+  font-size: 1em;
+  text-align: center;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+  max-width: 14em;
+}
+
+.hero__body>strong {
+  font-family: WorkSans-Medium, sans-serif;
+  font-weight: bolder;
+  position: relative;
+  text-decoration: underline;
+}
+
+.hero__button {
+  margin-bottom: 1em;
+}
+
+.hero__post-cta {
+  font-family: WorkSans-Light, sans-serif;
+  margin-bottom: 2em;
+}
+
+.hero__disclaimer {
+  position: absolute;
+  background-color: $dark-blue;
+  color: $white;
+  font-size: 0.8em;
+  width: 10em;
+  padding: 0.7em 3em;
+  border-radius: 0.3em;
+  bottom: 3em;
+  left: -50%;
+  line-height: 1.4em;
+}
+
+.hero__disclaimer::after {
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
+  border-top: 1em solid  $dark-blue;
+  height: 1em;
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 45%;
+}
+
+.hero__disclaimer>.fa.fa-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.6em;
+  pointer-events: all;
+}
+
+@media screen and (min-width: 480px) {
+  .hero {
+    max-height: 30rem;
+  }
+
+  .cta.hero__subhead {
+    width: 20rem;
+  }
+
+  .hero__subhead {
+    font-family: HelveticaNeue-Thin, sans-serif;
+    font-size: 2em;
+  }
+
+  .hero__body {
+    max-width: 20em;
+  }
+
+  .hero__post-cta {
+    font-family: WorkSans-Light, sans-serif;
+    margin-bottom: 4em;
+  }
+}
+
+@media screen and (min-width: 737px) {
+  /* remove padding to preserve view  main.main-content is used to override other styles*/
+  main.main-content {
+    padding-top: 0;
+  }
+
+  .hero {
+    min-height: 23em;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 737px) and (orientation: landscape) {
+  .hero {
+    font-size: 1em;
+    height: 27em;
+    padding-top: 5em;
+  }
+
+  .hero__post-cta {
+    margin-bottom: 4em;
+  }
+}
+
+@media screen and (max-width: 569px) and (orientation: landscape) {
+  .hero {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero {
+    min-height: 20em;
+    font-size: 1.8em;
+    max-height: 40rem;
+  }
+}

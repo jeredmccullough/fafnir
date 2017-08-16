@@ -1,0 +1,15 @@
+<div class="container clearfix">
+    <main role="main" class="content">
+        {{ $paginator := .Paginate (where .Site.Pages "Kind" "section") }}
+        <div class="template-list">
+        {{ range $paginator.Pages }}
+          {{ partial "dev-pages/summary-templates" . }}
+        {{ end }}
+        <div class="template placeholder"></div>
+        <div class="template placeholder"></div>
+        <div class="template placeholder"></div>
+        <div class="template placeholder"></div>
+        <div class="template placeholder"></div>
+        </div>
+    </main>
+</div>

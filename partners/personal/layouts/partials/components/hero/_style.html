@@ -1,0 +1,20 @@
+<style media="screen">
+  .hero {
+    background-image: url({{.sm | absURL}})
+  }
+</style>
+<style media="screen and (min-width: 480px)">
+  .hero {
+    background-image: url({{.md | absURL}})
+  }
+</style>
+<style media="screen and (min-width: 769px)">
+  .hero {
+    background-image: url({{.lg | absURL}})
+  }
+</style>
+<style media="screen and (min-width: 1025px)">
+  .hero {
+    background-image: url({{.xl | absURL}})
+  }
+</style>

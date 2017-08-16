@@ -1,0 +1,38 @@
+machine:
+  node:
+    version: 7.10.0
+dependencies:
+  # this section prepared CircleCi environment to run tests
+  pre:
+    - wget https://github.com/spf13/hugo/releases/download/v0.24/hugo_0.24_Linux-64bit.deb
+    - cd ~
+    - sudo dpkg -i hugo*.deb
+    - hugo version
+    - pip install awscli
+#compile:
+#  override:
+#    - hugo -s dropbox/ -d ../public
+test:
+  # at the moment we don't have any Unit Tests, this is just a dummy code so that CircleCi does not flag this project as "no tests"
+  # we do test our code but it is AFTER deployment is done, last line in the file
+  # the copy command below should be moved to "deployment" section once Unit Tests are created
+  post:
+    - echo "no tests yet"
+    # - aws s3 cp s3://mytestmystique/test_bundle.zip . #later this needs to change - Appium tests are not in GitHub at the moment. so we are bringing it to the container from S3 bucket before forcing sync below. this is poorely writen and would change once we finalize our testing approach
+deployment:
+  sandbox:
+    branch: sandbox
+    owner: mathiasarsmtrong
+    commands:
+      # - scripts/circle.sh -D
+      # - aws s3 sync dist/ s3://staging.mystique #push code to PROD - this is "dumb" push, we need to get smarter and do
+  # development:
+  #   branch: development #step below are only run for Development branch. More details in CircleCi documentation
+  #   owner: ampush
+  #   commands:
+  #     - scripts/circle.sh -D
+  #     - aws s3 sync dist/ s3://staging.mystique #push code to PROD - this is "dumb" push, we need to get smarter and do it in Shell script as mentioned above
+  #     # - aws s3 cp test_bundle.zip s3://mytestmystique/test_bundle.zip #AWS Device farm pulls test code from S3 bucket. Sync command removed this file from S3 bucket (?), need to add it back.
+  #     # - aws  devicefarm list-projects --region us-west-2 # syncing AWS Device farm information? Not sure what does it do, Javed coded it
+  #     # line below triggers Appium tests in AWS Device Farm. These tests can run long time (30-60 minutes), so releasing CircleCi container before tests are done. Tests would have their own notification and reporting structure.
+  #     # - aws devicefarm schedule-run --project-arn arn:aws:devicefarm:us-west-2:195150329923:project:07185cb5-9876-409c-b57a-4fada250dcf6 --device-pool-arn arn:aws:devicefarm:us-west-2:195150329923:devicepool:07185cb5-9876-409c-b57a-4fada250dcf6/40aca958-e022-498e-af0c-cbca35529313 --name NewTest --test '{"type":"APPIUM_WEB_PYTHON","testPackageArn":"arn:aws:devicefarm:us-west-2:195150329923:upload:07185cb5-9876-409c-b57a-4fada250dcf6/38f33597-fa29-4bf7-9c56-9e4d9c9ae9ce","parameters":{"video_recording":"false", "app_performance_monitoring":"false"}}' --region us-west-2

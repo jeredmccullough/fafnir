@@ -1,0 +1,7 @@
+{{ if eq "production" (getenv "ENV") }}
+  {{ partial "prod-pages/redirect" . }}
+{{else}}
+  {{ partial "dev-pages/list-header" . }}
+  {{ partial "dev-pages/page-list" . }}
+  {{ partial "dev-pages/list-footer" . }}
+{{end}}

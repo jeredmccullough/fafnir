@@ -1,0 +1,7 @@
+{{ if (isset .images .src ) }}
+<img {{ printf "src=%q" (echoParam .images .src) | safeHTMLAttr }}
+lazy = "{{ .src | absURL }}"
+draconis = "image"/>
+{{ else }}
+<img src = "{{ .src | absURL }}">
+{{ end }}

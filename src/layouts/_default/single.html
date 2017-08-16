@@ -1,0 +1,21 @@
+{{ partial "prod-pages/header" . }}
+{{ partial "prod-pages/page" . }}
+<script>
+window.__VARIANT_ID__ = {{ .Params.variant_id }};
+window.__TEMPLATE__ = {{ .Params.template }};
+window.__AMP_STORE_PREFIX__ = {{ .Site.Params.ampushStorePrefix }}
+var eventFn = function(){
+  var tags = document.querySelectorAll('style.fouc');
+  for (var i = 0; i < tags.length; i++) {
+    tags[i] && tags[i].parentElement.removeChild(tags[i]);
+  }
+}
+if (document.addEventListener) {
+  document.addEventListener('DOMContentLoaded', eventFn);
+} else if (window.onload){
+  window.onload = eventFn;
+} else {
+  eventFn();
+}
+</script>
+{{ partial "prod-pages/footer" . }}

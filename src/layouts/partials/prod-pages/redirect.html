@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <script>
+		{{ if (getenv "EXPERIMENTER_URL") }}
+		var experimenterUrl= "{{getenv "EXPERIMENTER_URL"}}";
+		{{ else }}
+		var experimenterUrl= "https://experimenterqa.ampush.io/experimenter";
+		{{ end }}
+    !function(variantUrl, request, scriptTag, timeTracker, start){
+			timeTracker = new Date();
+			start = timeTracker.getTime();
+			request = new XMLHttpRequest();
+			request.onerror = request.ontimeout = request.onload = function() {
+				window.__loadTime__ = timeTracker.getTime() - start;
+				if (this.status === 200){
+					try{
+						window.__variantUrl__ = JSON.parse(this.response).variant_url;
+						if (!window.__variantUrl__ || window.__variantUrl__ === 'undefined') {
+							window.__variantUrl__ = {{.Site.Params.defaulturl}};
+						}
+					} catch(err) {
+						window.__variantUrl__ = {{.Site.Params.defaulturl}};
+					}
+				} else {
+					window.__variantUrl__ = {{.Site.Params.defaulturl}};
+				}
+				variantUrl = window.__variantUrl__.replace(/\"/g,'');
+				if (variantUrl.indexOf('.js') === -1){
+					document.location.href = variantUrl + document.location.search
+				} else {
+					scriptTag = document.createElement('script');
+					scriptTag.type='text/javascript';
+					scriptTag.src = variantUrl;
+					document.head.appendChild(scriptTag);
+				}
+			};
+			request.open('GET', experimenterUrl + document.location.search, true);
+			request.timeout = 5000;
+			request.send(null);
+		}();
+    </script>
+  </head>
+  <body>
+    <noscript>
+      Javascript is Disabled. Please enable Javascript to view this experience
+    </noscript>
+  </body>
+</html>

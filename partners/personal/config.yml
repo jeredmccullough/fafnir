@@ -1,0 +1,33 @@
+baseurl: http://staging.mystique.s3-website-us-east-1.amazonaws.com
+languageCode: en-us
+title: Ampush Landing Pages
+enableRobotsTXT: true
+themesDir: ../../
+theme: src
+partner: personal
+metaDataFormat: yml
+enableEmoji: true
+params:
+  defaulturl: /
+  copyright: Powered by [Ampush](http://Ampush.com).
+  index_css:
+    - css/styles.css
+  custom_js :
+    - https://use.fontawesome.com/582b6d38b6.js
+  # custom_css:
+  # index_js :
+  # imgPixels:
+  #   - <image-url>
+
+  ENV:
+    name: personal
+    title: personal
+  ampStorePrefix: 7fh285_
+medium: other
+plugins:
+  # facebook:
+  #   - "<facebook-pixel-id>"
+  # ampush:
+  #   - <amp-tracker-partner-name>
+  #   - <amp-tracker-id>
+  # taboola: <taboola-url-id>

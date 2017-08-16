@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'WorkSans-Light';
+  src: url('/fonts/work-sans/worksans-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/work-sans/worksans-light-webfont.woff2') format('woff2'),
+  url('/fonts/work-sans/worksans-light-webfont.woff') format('woff'),
+  url('/fonts/work-sans/worksans-light-webfont.ttf') format('truetype'),
+  url('/fonts/work-sans/worksans-light-webfont.svg#work_sanslight') format('svg');
+}
+
+@font-face {
+  font-family: 'WorkSans-Medium';
+  src: url('/fonts/work-sans/worksans-medium-webfont.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/work-sans/worksans-medium-webfont.woff2') format('woff2'),
+  url('/fonts/work-sans/worksans-medium-webfont.woff') format('woff'),
+  url('/fonts/work-sans/worksans-medium-webfont.ttf') format('truetype'),
+  url('/fonts/work-sans/worksans-medium-webfont.svg#work_sansmedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'WorkSans-SemiBold';
+  src: url('/fonts/work-sans/worksans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/work-sans/worksans-semibold-webfont.woff2') format('woff2'),
+  url('/fonts/work-sans/worksans-semibold-webfont.woff') format('woff'),
+  url('/fonts/work-sans/worksans-semibold-webfont.ttf') format('truetype'),
+  url('/fonts/work-sans/worksans-semibold-webfont.svg#work_sanssemibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans';
+  src: url('/fonts/work-sans/worksans.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

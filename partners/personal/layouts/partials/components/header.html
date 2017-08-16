@@ -1,0 +1,7 @@
+<header class="header">
+  {{ with .image }}
+    <a href=" {{ .href | absURL }} " class="header__image">
+      <img src="{{ .url | absURL}}" />
+    </a>
+  {{ end }}
+</header>

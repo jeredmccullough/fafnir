@@ -1,0 +1,66 @@
+{
+  "disallowAttributeConcatenation": null,
+  "disallowAttributeInterpolation": null,
+  "disallowAttributeTemplateString": null,
+  "disallowBlockExpansion": true,
+  "disallowClassAttributeWithStaticValue": true,
+  "disallowClassLiterals": null,
+  "disallowClassLiteralsBeforeAttributes": null,
+  "disallowClassLiteralsBeforeIdLiterals": true,
+  "disallowDuplicateAttributes": true,
+  "disallowHtmlText": null,
+  "disallowIdAttributeWithStaticValue": null,
+  "disallowIdLiterals": null,
+  "disallowIdLiteralsBeforeAttributes": null,
+  "disallowLegacyMixinCall": true,
+  "disallowMultipleLineBreaks": true,
+  "disallowSpaceAfterCodeOperator": null,
+  "disallowSpacesInsideAttributeBrackets": null,
+  "disallowSpecificAttributes": null,
+  "disallowSpecificTags": null,
+  "disallowStringConcatenation": true,
+  "disallowStringInterpolation": null,
+  "disallowTagInterpolation": null,
+  "disallowTemplateString": null,
+  "maximumNumberOfLines": null,
+  "requireClassLiteralsBeforeAttributes": true,
+  "requireClassLiteralsBeforeIdLiterals": null,
+  "requireIdLiteralsBeforeAttributes": true,
+  "requireLineFeedAtFileEnd": true,
+  "requireLowerCaseAttributes": true,
+  "requireLowerCaseTags": true,
+  "requireSpaceAfterCodeOperator": true,
+  "requireSpacesInsideAttributeBrackets": null,
+  "requireSpecificAttributes": [
+    {
+      "button": "aria-label"
+    },
+    {
+      "md-autocomplete": "aria-label"
+    },
+    {
+      "md-button": "aria-label"
+    },
+    {
+      "md-checkbox": "aria-label"
+    },
+    {
+      "md-chips": "aria-label"
+    },
+    {
+      "md-select": "aria-label"
+    },
+    {
+      "md-switch": "aria-label"
+    }
+  ],
+  "requireStrictEqualityOperators": true,
+  "validateAttributeQuoteMarks": "'",
+  "validateAttributeSeparator": null,
+  "validateDivTags": true,
+  "validateExtensions": true,
+  "validateIndentation": 2,
+  "validateLineBreaks": null,
+  "validateSelfClosingTags": true,
+  "validateTemplateString": true
+}
